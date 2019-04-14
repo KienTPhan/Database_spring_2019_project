@@ -15,22 +15,21 @@ function drawMap(geo_data) {
     .append("h2")
     .text("Location of terrorist attack(s)")
 
-    // var svg = d3.select("body").select("#map")
-    // .append("svg")
-    // .attr("width", width + margin)
-    // .attr("height", height + margin)
-    // .call(d3.behavior.zoom().on("zoom", function () {
-    //   svg.attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
-    // }))
-    // .append("g")
+    var mapContainerSvg = d3.select("body").select("#map-container")
+    .append("svg")
+    .attr("width", width + margin)
+    .attr("height", height + margin)
+    .call(d3.behavior.zoom().on("zoom", function () {
+      svg.attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
+    }))
+    .append("g")
+    .attr('class', 'map');
 
-    // put the svg into the DOM
-    var svg = d3.select("body").select("#map")
+    var svg = mapContainerSvg
         .append("svg")
         .attr("width", width + margin)
         .attr("height", height + margin)
         .append('g')
-        .attr('class', 'map');
 
     // mercator projection (like scale) geographic coordinates => (x,y) pixel range
     var projection = d3.geo.mercator()
@@ -533,7 +532,7 @@ function drawMap(geo_data) {
                                     .range([2,9]);
                     
                     // plot circles onto the map
-                    var mapSvg = d3.select("#map").select("svg");
+                    var mapSvg = d3.select("#map-container").select("svg").select('g').select('svg').select('g');
 
                     // remove the past bubble group so it doesnt overlapse everytime i goback to the world
                     mapSvg.selectAll(".bubble").remove();
