@@ -5,15 +5,24 @@ function drawMap(geo_data) {
     var margin = 75,
         width = 500 - margin + 1300,
         height = 350 - margin + 675;
+
     // put a title on top of the svg
     d3.select("body").select("#map")
         .append("h3")
-
 
     //add map title
     d3.select("body").select("#map")
     .append("h2")
     .text("Location of terrorist attack(s)")
+
+    // var svg = d3.select("body").select("#map")
+    // .append("svg")
+    // .attr("width", width + margin)
+    // .attr("height", height + margin)
+    // .call(d3.behavior.zoom().on("zoom", function () {
+    //   svg.attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
+    // }))
+    // .append("g")
 
     // put the svg into the DOM
     var svg = d3.select("body").select("#map")
@@ -43,7 +52,6 @@ function drawMap(geo_data) {
         .style('stroke-width', 0.5);
 
     // /* Use D3 to load the CSV file and pass the contents of it to the draw function 
-    //   */
     d3.json("http://localhost:5000/api/deaths",draw);
     
 
@@ -211,56 +219,6 @@ function drawMap(geo_data) {
             var div = d3.select("body").append("div")	
                 .attr("class", "tooltip")				
                 .style("opacity", 0);
-
-            // // Add the valueline path.
-            // d3.select("svg")
-            //     .append("path")
-            //     .attr("class", "line")
-            //     .attr("d", valueline(worldData));
-
-        // updateData('The World',2000,2003); // LET IT LOAD!!!
-        // //(scatter plot) find all the "circle" and move it to a location via x and y using scale function
-        // d3.selectAll('circle')
-        //     .attr('cx', function(d) {
-        //     return time_scale(d.date);
-        //     })
-        //     .attr('cy', function(d) {
-        //     return count_scale(d.numberKilled);
-        //     })
-        //     .attr('r', radius)
-        //     .attr('fill', color)
-        //     .on("mouseover", function(d) {		
-        //         div.transition()		
-        //             .duration(200)		
-        //             .style("opacity", .9);		
-        //         div	.html( 
-        //             "<p> <strong> " + d.key + "</strong>" + "<br>" + "# killed: " + d.numberKilled + "</p>")	
-        //             .style("left", (d3.event.pageX) + "px")		
-        //             .style("top", (d3.event.pageY - 28) + "px");	
-        //         })
-        //     .on("mouseout", function(d) {		
-        //         div.transition()		
-        //             .duration(500)		
-        //             .style("opacity", 0);	
-        //     });		
-
-
-            // Add the valueline path.
-            // var path = d3.select("svg")
-            //     .append("path")
-            //     .attr("class", "line")
-            //     .attr("d", function(d) { return valueline(worldData); } )
-
-            // // animate point to point of the line graph (causes trouble later when changing country)
-            // var totalLength = [path[0][0].getTotalLength()];
-        
-            // d3.select(path[0][0])
-            //     .attr("stroke-dasharray", totalLength + " " + totalLength ) 
-            //     .attr("stroke-dashoffset", totalLength)
-            //     .transition()
-            //         .duration(7500)
-            //         .ease("linear")
-            //         .attr("stroke-dashoffset", 0);
     
             // update(int) will update the chart according to which year is passed in
             function updateMapPoints(country,filteredCountryData) {
@@ -297,40 +255,6 @@ function drawMap(geo_data) {
                 .attr('fill', "red")
 
             }
-// TEST CODE
-            // // add years_select that corresponds to all the years in years[]
-            //  d3.select("body").select("#filter").select("select")
-            // .selectAll("option").select(".yearOption") //select all the options in select
-            //     .data(years) // bind data corresponds to all the years
-            //     .enter() // grab all the elements thats not yet on the page
-            //     .append("option") // append option with text that equal to data by itself
-            //     .text(function(d) {
-            //         return d;
-            //     });
-
-            // //enable interaction for change event
-            // d3.select('.years_select').on("change", function() {
-            //     // event handler
-            //     // d is the data from years[]
-            //     update(+this.value);
-            // }) 
-
-// TEST CODE
-    
-            // //CURRENTLY USELESS: animate through the years
-            // var year_idx = 0;
-            // var year_interval = setInterval(function() {
-            // // update(years[year_idx]);
-            // // year_idx++;
-            // if(year_idx >= years.length) {
-            //     //stop interval using clearInterval()
-            //     clearInterval(year_interval);
-            // }
-            // },750);
-
-            //CURRENTLY USELESS: animate through the years
-
-//TEST CODE
 
     // TESTING CODE 
             // years[] contain all the years that that I will animate through
@@ -495,32 +419,6 @@ function drawMap(geo_data) {
 
                 if (country == "The World") {
 
-                    // // TEST CODE: Get the year number of people kill and location
-                    // var newWorldData = d3.nest()
-                    //                     .key(function(d) { return d.iyear;})
-                    //                     .key(function(d) { return d.country_txt})
-                    //                     .rollup(function(v) { 
-                    //                         let numKilled =  d3.sum(v, function(d) { return d.nkill; }); 
-                    //                         // get the longitude of the fist terrorist attack of the country
-                    //                         let longitude = v[0].longitude;
-                    //                         let latitude = v[0].latitude;
-
-                    //                         return { 'numKilled': numKilled ,
-                    //                                 'longitude': longitude,
-                    //                                 'latitude': latitude
-                    //                         }
-                    //                     })
-                    //                     .entries(data)
-
-                    // // manipulating worldData to fit the data structure that this function uses
-                    // if (typeof(newWorldData[0].key) === 'string') {
-                    //     newWorldData.forEach(function(d) {
-                    //         // console.log(d.values.latitude); debugger;
-                    //         d.key = dateFormat.parse(d.key);
-                    //     })
-                    // }
-                    // // TEST CODE
-
                     // manipulating worldData to fit the data structure that this function uses
                     if (typeof(worldData[0].key) === 'string') {
                         worldData.forEach(function(d) {
@@ -581,19 +479,6 @@ function drawMap(geo_data) {
                             return d.nkill;
                         })
 
-
-                        // var coords = leaves.map(function(d) { // will put all the coordiante in leaves into an array
-                        //     return projection([+d.longitude, +d.latitude]);
-                        // });
-                        
-                        // // find the average cordinates in all the element in coords[x,y]
-                        // var center_x = d3.mean(coords, function(d) { 
-                        //    return d[0]; 
-                        // });
-                        
-                        // var center_y = d3.mean(coords, function(d) {
-                        //     return d[1];
-                        // })
                         // use the first attack location as the circle location and project it to pixel value
                         var location = projection([+leaves[0].longitude,+leaves[0].latitude])
                         
@@ -701,7 +586,7 @@ function drawMap(geo_data) {
                                     return 'white';
                                 }
                                 
-                            })
+                            })          
 
                 }
 
@@ -709,12 +594,6 @@ function drawMap(geo_data) {
                 var path = d3.select("svg")
                 .append("path")
                 .attr("class", "line")
-
-                // find range of date selected country
-                // time_extent = d3.extent(filteredCountryData[0].values, function(d,i) {
-                //     var year = d.key;
-                //     return year; 
-                // })
 
                 // make the range using user's input
                 time_extent = [dateFormat.parse(startingYear),dateFormat.parse(endingYear)];
@@ -724,8 +603,6 @@ function drawMap(geo_data) {
                     var numberKilled = d.values;
                     return numberKilled ;// value represent the number of people killed 
                 })
-
-    // HERE
 
                 // Create x-axis scale mapping dates -> pixel again
                 time_scale = d3.time.scale()
@@ -772,11 +649,11 @@ function drawMap(geo_data) {
                     .duration(750)
                     .call(count_axis);
                             
-                    // Selecting the svg
+                // Selecting the svg
                 var circles =  d3.select('svg').selectAll("circle")
                                     .data(filteredCountryData[0].values);
 
-                    // Enter the circles
+                // Enter the circles
                 circles.enter().append("circle")
 
                 //(scatter plot update) find all the "circle" and move it to a location via x and y using scale function

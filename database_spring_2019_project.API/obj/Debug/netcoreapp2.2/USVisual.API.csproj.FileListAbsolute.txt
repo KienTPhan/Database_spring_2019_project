@@ -40,3 +40,17 @@
 /Users/kienphan/Desktop/Database_spring2019_Project/database_spring_2019_project.API/obj/Debug/netcoreapp2.2/USVisual.API.RazorTargetAssemblyInfo.cache
 /Users/kienphan/Desktop/Database_spring2019_Project/database_spring_2019_project.API/obj/Debug/netcoreapp2.2/USVisual.API.dll
 /Users/kienphan/Desktop/Database_spring2019_Project/database_spring_2019_project.API/obj/Debug/netcoreapp2.2/USVisual.API.pdb
+/Users/kienphan/Documents/Database_spring2019_Project/database_spring_2019_project.API/bin/Debug/netcoreapp2.2/USVisual.API.deps.json
+/Users/kienphan/Documents/Database_spring2019_Project/database_spring_2019_project.API/bin/Debug/netcoreapp2.2/USVisual.API.runtimeconfig.json
+/Users/kienphan/Documents/Database_spring2019_Project/database_spring_2019_project.API/bin/Debug/netcoreapp2.2/USVisual.API.runtimeconfig.dev.json
+/Users/kienphan/Documents/Database_spring2019_Project/database_spring_2019_project.API/bin/Debug/netcoreapp2.2/USVisual.API.dll
+/Users/kienphan/Documents/Database_spring2019_Project/database_spring_2019_project.API/bin/Debug/netcoreapp2.2/USVisual.API.pdb
+/Users/kienphan/Documents/Database_spring2019_Project/database_spring_2019_project.API/obj/Debug/netcoreapp2.2/USVisual.API.csprojAssemblyReference.cache
+/Users/kienphan/Documents/Database_spring2019_Project/database_spring_2019_project.API/obj/Debug/netcoreapp2.2/USVisual.API.csproj.CoreCompileInputs.cache
+/Users/kienphan/Documents/Database_spring2019_Project/database_spring_2019_project.API/obj/Debug/netcoreapp2.2/USVisual.API.RazorAssemblyInfo.cache
+/Users/kienphan/Documents/Database_spring2019_Project/database_spring_2019_project.API/obj/Debug/netcoreapp2.2/USVisual.API.RazorAssemblyInfo.cs
+/Users/kienphan/Documents/Database_spring2019_Project/database_spring_2019_project.API/obj/Debug/netcoreapp2.2/USVisual.API.AssemblyInfoInputs.cache
+/Users/kienphan/Documents/Database_spring2019_Project/database_spring_2019_project.API/obj/Debug/netcoreapp2.2/USVisual.API.AssemblyInfo.cs
+/Users/kienphan/Documents/Database_spring2019_Project/database_spring_2019_project.API/obj/Debug/netcoreapp2.2/USVisual.API.RazorTargetAssemblyInfo.cache
+/Users/kienphan/Documents/Database_spring2019_Project/database_spring_2019_project.API/obj/Debug/netcoreapp2.2/USVisual.API.dll
+/Users/kienphan/Documents/Database_spring2019_Project/database_spring_2019_project.API/obj/Debug/netcoreapp2.2/USVisual.API.pdb
