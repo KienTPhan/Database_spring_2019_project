@@ -6,37 +6,31 @@
     <script src="/lib/d3.v3.min.js"></script>
     <link rel = "stylesheet" type = "text/css" href = "/css/style.css" />
     <script src="/js/main.js"></script>
- 
   </head>
 <body>
     <div>
       <div class="row">
-          <div id="line_graph" class="col-9" style="background:rgb(255, 255, 255)"></div>
-          <div class="row col-3" style="background:rgb(255, 255, 255)">
-              <div id="filter" style="background:rgb(255, 255, 255)"><h4>Please pick a year range</h4>
+          <div id="line_graph" class="col-9" style="background:rgb(83, 162, 102)"></div>
+          <div class="row col-3" style="background:rgb(83, 162, 102)">
+              <div id="filter" style="background:rgb(83, 162, 102)"><h4>Please pick a year range</h4>
                 <div class="range_picker">
-                    <select  id="starting_years_select" form="carform">
+                    <select  class="form-control form-control-sm" id="starting_years_select" form="carform">
                         <option value="" disabled selected>starting year</option>
                     </select>
                     to
-                    <select  id="ending_years_select" form="carform">
+                    <select class="form-control form-control-sm" id="ending_years_select" form="carform">
                         <option value="" disabled selected>ending  year</option>
                     </select>
                 </div>
                 <h4>Please pick a country</h4>
                 <div class="contry_picker">
-                    <select class="country_select" form="carform">
+                    <select  class="country_select form-control" form="carform">
                         <option value="" disabled selected>Select a country</option>
                         <option value="The World" selected>The World</option>
                     </select>
                 </div>
                 <h6>Press update to load your selected data</h6>
-                <button id="updateButton">Update</button>
-                <h6 style="color: black"><strong>INSTRUCTION:</strong><br> - Hover over circle on graph or map for more details. <br> - Please use your browser zoom setting to zoom into map.
-                  </h6>
-                <h6 style="color:red"><strong>WARNING:</strong><br> - The website might take 10 - 15 sec to load. <br> - Since there are over 180,000 data entries if your range 
-                  exceeds more than 5 years there will be 5 - 10 sec delay<br> - I recommend selecting one country with a range of 1-5 years.
-                </h6>
+                <button type="button" class="btn btn-dark  btn-lg pt-4 pl-5 pr-5 pb-4" id="updateButton">Update</button>
               </div>
             </div>
           </row>
