@@ -51,6 +51,15 @@ namespace USVisual.API.Controllers
             return Ok(dataByYearRangeAndCountry);
         }
 
+         // GET api/deaths/deathCountMoreThan/#deathcount
+        [HttpGet("deathCountMoreThan/{deathCount}")]
+        public async Task<IActionResult>  GetDataByDeathCountMoreThan(int deathCount)
+        {
+            var dataByDeathCountMoreThan = await _context.Deaths.Where(x => Int32.Parse(x.nkill) >= deathCount).OrderBy(x => x.iyear).ToListAsync();
+            return Ok(dataByDeathCountMoreThan);
+        }
+
+
 
     }
     
