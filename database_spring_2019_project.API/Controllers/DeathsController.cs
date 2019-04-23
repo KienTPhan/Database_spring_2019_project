@@ -52,13 +52,23 @@ namespace USVisual.API.Controllers
         }
 
          // GET api/deaths/deathCountMoreThan/#deathcount
-        [HttpGet("deathCountMoreThan/{deathCount}")]
+        [HttpGet("deathCountMoreThan{deathCount}")]
         public async Task<IActionResult>  GetDataByDeathCountMoreThan(int deathCount)
         {
             var dataByDeathCountMoreThan = await _context.Deaths.Where(x => Int32.Parse(x.nkill) >= deathCount).OrderBy(x => x.iyear).ToListAsync();
             return Ok(dataByDeathCountMoreThan);
         }
 
+        // GET api/deaths/deathCountMoreThan/2005/2006/United States/#deathcount
+        [HttpGet("{year1}/{year2}/{countryName}/{deathCount}")]
+        public async Task<IActionResult>  GetDataByDateCountryDeathCount(int year1, int year2,string countryName,int deathCount)
+        {
+            var dataByDateCountryDeathCount = await _context.Deaths.Where(x => Int32.Parse(x.nkill) >= deathCount 
+                                                && Int32.Parse(x.iyear) >= year1 && Int32.Parse(x.iyear) <= year2 
+                                                && x.country_txt.ToLower() == countryName.ToLower())
+                                                .OrderBy(x => x.iyear).ToListAsync();
+            return Ok(dataByDateCountryDeathCount);
+        }
 
 
     }
