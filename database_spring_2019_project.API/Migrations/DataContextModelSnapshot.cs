@@ -13,7 +13,21 @@ namespace USVisual.API.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.2-servicing-10034");
+                .HasAnnotation("ProductVersion", "2.2.3-servicing-35854");
+
+            modelBuilder.Entity("USVisual.API.Models.Country", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("countryName");
+
+                    b.Property<string>("region");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Countrys");
+                });
 
             modelBuilder.Entity("USVisual.API.Models.Death", b =>
                 {
@@ -45,6 +59,36 @@ namespace USVisual.API.Migrations
                     b.ToTable("Deaths");
                 });
 
+            modelBuilder.Entity("USVisual.API.Models.Deaths", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CountryId");
+
+                    b.Property<string>("attack_type");
+
+                    b.Property<string>("countryName");
+
+                    b.Property<string>("latitude");
+
+                    b.Property<string>("longitude");
+
+                    b.Property<string>("month");
+
+                    b.Property<string>("nKill");
+
+                    b.Property<string>("nwound");
+
+                    b.Property<string>("year");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
+
+                    b.ToTable("Events");
+                });
+
             modelBuilder.Entity("USVisual.API.Models.Value", b =>
                 {
                     b.Property<int>("Id")
@@ -55,6 +99,14 @@ namespace USVisual.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Values");
+                });
+
+            modelBuilder.Entity("USVisual.API.Models.Deaths", b =>
+                {
+                    b.HasOne("USVisual.API.Models.Country", "Country")
+                        .WithMany("Deaths")
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
